@@ -58,6 +58,8 @@ int main(int argc, char *argv[])
 				 << "invalid numbers" << badNums.str() << endl;
 		}
 	}
+	cout << os.str() << endl;
+	
 	return 0;
 }
 
