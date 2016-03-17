@@ -15,9 +15,16 @@
 using namespace std;
 int main() {
     vector<int> ivec = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    list<int> l;
-    copy(ivec.crbegin() + 3, ivec.crbegin() + 8, back_inserter(l));
-    for (auto i: l)
-        cout << i << endl;
+    ostream_iterator<int> out_iter(cout, " ");
+    copy(ivec.begin(), ivec.end(), out_iter);
+    cout << endl;
+    
+    list<int> li;
+    vector<int>::reverse_iterator re(ivec.begin()+2);
+    vector<int>::reverse_iterator rb(ivec.begin()+7);
+    copy(rb, re, back_inserter(li));
+    copy(li.begin(), li.end(), out_iter);
+    cout << endl;
+    
     return 0;
 }
